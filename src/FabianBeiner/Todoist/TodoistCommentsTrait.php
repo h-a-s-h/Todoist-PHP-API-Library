@@ -26,7 +26,7 @@ trait TodoistCommentsTrait
      *
      * @return array|bool An array containing all comments, or false on failure.
      */
-    public function getAllCommentsByTask(string $taskId): bool|array
+    public function getAllCommentsByTask(string $taskId)
     {
         return $this->getAllComments('task', $taskId);
     }
@@ -41,7 +41,7 @@ trait TodoistCommentsTrait
      *
      * @return array|bool An array containing all comments, or false on failure.
      */
-    public function getAllCommentsByProject(string $projectId): bool|array
+    public function getAllCommentsByProject(string $projectId)
     {
         return $this->getAllComments('project', $projectId);
     }
@@ -57,7 +57,7 @@ trait TodoistCommentsTrait
      *
      * @return array|bool An array containing all comments, or false on failure.
      */
-    public function getAllComments(string $commentType, string $typeId): bool|array
+    public function getAllComments(string $commentType, string $typeId)
     {
         $commentType = strtolower($commentType);
         if (('project' !== $commentType && 'task' !== $commentType) || ! $this->validateId($typeId)) {
@@ -83,7 +83,7 @@ trait TodoistCommentsTrait
      *
      * @return array|bool An array containing the values of the new comment, or false on failure.
      */
-    public function createCommentForTask(string $taskId, string $comment): bool|array
+    public function createCommentForTask(string $taskId, string $comment)
     {
         return $this->createComment('task', $taskId, $comment);
     }
@@ -99,7 +99,7 @@ trait TodoistCommentsTrait
      *
      * @return array|bool An array containing the values of the new comment, or false on failure.
      */
-    public function createCommentForProject(string $projectId, string $comment): bool|array
+    public function createCommentForProject(string $projectId, string $comment)
     {
         return $this->createComment('project', $projectId, $comment);
     }
@@ -117,7 +117,7 @@ trait TodoistCommentsTrait
      *
      * @return array|bool An array containing the values of the new comment, or false on failure.
      */
-    public function createComment(string $commentType, string $typeId, string $comment): bool|array
+    public function createComment(string $commentType, string $typeId, string $comment)
     {
         $commentType = strtolower($commentType);
         if (('project' !== $commentType && 'task' !== $commentType) || ! $this->validateId($typeId) || ! strlen(
@@ -147,7 +147,7 @@ trait TodoistCommentsTrait
      *
      * @return array|bool An array containing the values of the comment, or false on failure.
      */
-    public function getComment(string $commentId): bool|array
+    public function getComment(string $commentId)
     {
         if ( ! $this->validateId($commentId)) {
             return false;
@@ -170,7 +170,7 @@ trait TodoistCommentsTrait
      *
      * @return array|bool True on success, false on failure.
      */
-    public function updateComment(string $commentId, string $content): bool|array
+    public function updateComment(string $commentId, string $content)
     {
         if ( ! strlen($content) || ! $this->validateId($commentId)) {
             return false;

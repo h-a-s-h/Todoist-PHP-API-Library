@@ -26,7 +26,7 @@ trait TodoistSectionsTrait
      *
      * @return array|bool An array containing all user sections, or false on failure.
      */
-    public function getAllSections(?string $projectId = null): bool|array
+    public function getAllSections(?string $projectId = null)
     {
         if ( ! $this->validateId($projectId)) {
             /** @var object $result Result of the GET request. */
@@ -53,7 +53,7 @@ trait TodoistSectionsTrait
      *
      * @return array|bool An array containing the values of the new section, or false on failure.
      */
-    public function createSection(string $sectionName, string $projectId, array $optionalParameters = []): bool|array
+    public function createSection(string $sectionName, string $projectId, array $optionalParameters = [])
     {
         if ( ! strlen($sectionName) || ! $this->validateId($projectId)) {
             return false;
@@ -85,7 +85,7 @@ trait TodoistSectionsTrait
      *
      * @return array|bool An array containing the section data related to the given id, or false on failure.
      */
-    public function getSection(string $sectionId): bool|array
+    public function getSection(string $sectionId)
     {
         if ( ! $this->validateId($sectionId)) {
             return false;
@@ -108,7 +108,7 @@ trait TodoistSectionsTrait
      *
      * @return array|bool True on success, false on failure.
      */
-    public function updateSection(string $sectionId, string $newSectionName): bool|array
+    public function updateSection(string $sectionId, string $newSectionName)
     {
         if ( ! strlen($newSectionName) || ! $this->validateId($sectionId)) {
             return false;

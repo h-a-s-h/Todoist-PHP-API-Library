@@ -24,7 +24,7 @@ trait TodoistProjectsTrait
      *
      * @return array|bool An array containing all active user projects, or false on failure.
      */
-    public function getAllProjects(): bool|array
+    public function getAllProjects()
     {
         /** @var object $result Result of the GET request. */
         $result = $this->get('projects');
@@ -45,7 +45,7 @@ trait TodoistProjectsTrait
      *
      * @return array|bool An array containing the values of the new project, or false on failure.
      */
-    public function createProject(string $projectName, array $optionalParameters = []): bool|array
+    public function createProject(string $projectName, array $optionalParameters = [])
     {
         if ( ! strlen($projectName)) {
             return false;
@@ -78,7 +78,7 @@ trait TodoistProjectsTrait
      *
      * @return array|bool An array containing the project data related to the given id, or false on failure.
      */
-    public function getProject(string $projectId): bool|array
+    public function getProject(string $projectId)
     {
         if ( ! $this->validateId($projectId)) {
             return false;
@@ -100,7 +100,7 @@ trait TodoistProjectsTrait
      *
      * @return array|bool True on success, false on failure.
      */
-    public function updateProject(string $projectId, array $optionalParameters = []): bool|array
+    public function updateProject(string $projectId, array $optionalParameters = [])
     {
         if ( ! $this->validateId($projectId)) {
             return false;
@@ -154,7 +154,7 @@ trait TodoistProjectsTrait
      *
      * @return array|bool An array containing all collaborators of a shared project.
      */
-    public function getAllCollaborators(string $projectId): bool|array
+    public function getAllCollaborators(string $projectId)
     {
         if ( ! $this->validateId($projectId)) {
             return false;

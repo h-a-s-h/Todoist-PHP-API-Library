@@ -24,7 +24,7 @@ trait TodoistLabelsTrait
      *
      * @return array|bool An array containing all user labels, or false on failure.
      */
-    public function getAllLabels(): bool|array
+    public function getAllLabels()
     {
         /** @var object $result Result of the GET request. */
         $result = $this->get('labels');
@@ -45,7 +45,7 @@ trait TodoistLabelsTrait
      *
      * @return array|bool An array containing the values of the new label, or false on failure.
      */
-    public function createLabel(string $labelName, array $optionalParameters = []): bool|array
+    public function createLabel(string $labelName, array $optionalParameters = [])
     {
         if ( ! strlen($labelName)) {
             return false;
@@ -77,7 +77,7 @@ trait TodoistLabelsTrait
      *
      * @return array|bool An array containing the label data related to the given id, or false on failure.
      */
-    public function getLabel(string $labelId): bool|array
+    public function getLabel(string $labelId)
     {
         if ( ! $this->validateId($labelId)) {
             return false;
@@ -101,7 +101,7 @@ trait TodoistLabelsTrait
      *
      * @return array|bool True on success, false on failure.
      */
-    public function updateLabel(string $labelId, array $optionalParameters = []): bool|array
+    public function updateLabel(string $labelId, array $optionalParameters = [])
     {
         if ( ! $this->validateId($labelId)) {
             return false;
@@ -153,7 +153,7 @@ trait TodoistLabelsTrait
      *
      * @return array|bool An array containing all shared labels, or false on failure.
      */
-    public function getAllSharedLabels(): bool|array
+    public function getAllSharedLabels()
     {
         /** @var object $result Result of the GET request. */
         $result = $this->get('labels/shared');

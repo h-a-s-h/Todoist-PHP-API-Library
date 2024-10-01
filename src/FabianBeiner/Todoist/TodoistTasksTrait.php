@@ -27,7 +27,7 @@ trait TodoistTasksTrait
      *
      * @return array|bool Returns an array containing all user active tasks, or false on failure.
      */
-    public function getAllTasks(array $optionalParameters = []): bool|array
+    public function getAllTasks(array $optionalParameters = [])
     {
         if (count($optionalParameters)) {
             $query = http_build_query($optionalParameters, null, '&', PHP_QUERY_RFC3986);
@@ -55,7 +55,7 @@ trait TodoistTasksTrait
      *
      * @return array|bool An array containing the values of the new task, or false on failure.
      */
-    public function createTask(string $content, array $optionalParameters = []): bool|array
+    public function createTask(string $content, array $optionalParameters = [])
     {
         if ( ! strlen($content)) {
             return false;
@@ -98,7 +98,7 @@ trait TodoistTasksTrait
      *
      * @return array|bool An array containing the task data related to the given id, or false on failure.
      */
-    public function getTask(string $taskId): bool|array
+    public function getTask(string $taskId)
     {
         if ( ! $this->validateId($taskId)) {
             return false;
@@ -122,7 +122,7 @@ trait TodoistTasksTrait
      *
      * @return array|bool True on success, false on failure.
      */
-    public function updateTask(string $taskId, array $optionalParameters = []): bool|array
+    public function updateTask(string $taskId, array $optionalParameters = [])
     {
         if ( ! $this->validateId($taskId)) {
             return false;

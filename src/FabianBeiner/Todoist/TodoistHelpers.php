@@ -28,7 +28,7 @@ trait TodoistHelpers
      *
      * @return array|bool An array with or without data, false on failure.
      */
-    final protected function handleResponse(int $statusCode, string $content): bool|array
+    final protected function handleResponse(int $statusCode, string $content)
     {
         switch ($statusCode) {
             case 200:
